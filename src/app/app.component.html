@@ -1,5 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
+
+
 <mat-toolbar>
     <span>My Application</span>
 </mat-toolbar>
@@ -9,31 +11,24 @@
       <mat-form-field>        
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Caldera">
       </mat-form-field>
+      <div class="button-row">
+          <button mat-raised-button><mat-icon>delete</mat-icon></button>
+          <button mat-raised-button><mat-icon>print</mat-icon></button>
+      </div>
 
     </div>
 
-    <div class="button-row">
-        <button mat-raised-button><mat-icon>delete</mat-icon></button>
-        <button mat-raised-button><mat-icon>print</mat-icon></button>
-    </div>
+
 
     <mat-table #table [dataSource]="dataSource">  
       <!-- Position Column -->
-        <ng-container matColumnDef="seleccionado">
-            <mat-header-cell *matHeaderCellDef> Selec. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> 
-                <mat-checkbox> </mat-checkbox>  
-            </mat-cell>
-        </ng-container>
 
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-        </ng-container>
 
       <ng-container matColumnDef="codigo">
-        <mat-header-cell *matHeaderCellDef> Codigo. </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.codigo}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef> Seleccionar. </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+           <mat-checkbox [checked]="element.seleccionado">{{element.codigo}} </mat-checkbox>  
+        </mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="descripcion">
@@ -47,10 +42,11 @@
       </ng-container>
 
       <ng-container matColumnDef="accion">
-            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Acciones </mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <button mat-button><mat-icon>delete</mat-icon></button>  
-                <button mat-button><mat-icon>assignment</mat-icon></button>  
+                <button mat-icon-button><mat-icon>assignment</mat-icon></button>  
+                <button mat-icon-button><mat-icon>delete</mat-icon></button>
+                <button mat-icon-button><mat-icon>room</mat-icon></button>    
             </mat-cell>
     </ng-container>
 
@@ -59,5 +55,3 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>
-
-
