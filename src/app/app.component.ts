@@ -8,7 +8,7 @@ import {MatTableDataSource} from '@angular/material';
 })
 export class AppComponent {
   title = 'app';
-  displayedColumns = ['seleccionado','id','codigo','descripcion','tipo','accion'];
+  displayedColumns = ['codigo','descripcion','tipo','accion'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
 }
 
@@ -21,7 +21,7 @@ export interface Element {
 }
 
 const ELEMENT_DATA: Element[] = [
-  {id: 1, codigo: 'CDOC001460', descripcion: 'Garantia', tipo: 'PDF', seleccionado:false},
+  {id: 1, codigo: 'CDOC001460', descripcion: 'Garantia', tipo: 'PDF', seleccionado:true},
   {id: 2, codigo: 'CDOC001461', descripcion: 'Garantia', tipo: 'PDF', seleccionado:false},
-  {id: 3, codigo: 'CDOC001462', descripcion: 'Garantia', tipo: 'PDF', seleccionado:false}
+  {id: 3, codigo: 'CDOC001462', descripcion: 'Garantia', tipo: 'PDF', seleccionado:true}
 ];
